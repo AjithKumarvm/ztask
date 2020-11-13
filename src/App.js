@@ -5,7 +5,6 @@ import PageLoader from './Components/PageLoader'
 import Header from './Components/Header'
 
 const Dashboard = lazy(() => import('./Containers/Dashboard/'))
-const PageNotFound = lazy(() => import('./Containers/PageNotFound/'))
 
 function App () {
   useEffect(() => {
@@ -18,8 +17,7 @@ function App () {
       <Router>
         <Suspense fallback={<PageLoader />}>
           <Switch>
-            <Route path='/' component={Dashboard} exact />
-            <Route path='*' component={PageNotFound} />
+            <Route path='/' component={Dashboard} />
           </Switch>
         </Suspense>
       </Router>
