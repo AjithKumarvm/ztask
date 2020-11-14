@@ -9,8 +9,10 @@ export const getOptions = ({ url, ...otherOptions }) => {
     ...otherOptions
   })
 }
+
 export const getRequest = ({ url }) =>
   window.fetch(getOptions({ url })).then(resp => resp.json())
+
 export const postRequest = ({ url, body }) =>
   window
     .fetch(

@@ -10,7 +10,8 @@ const Store = createStore({
     customers: [],
     showLazyLoader: true,
     textMessage: '',
-    messageSent: false
+    messageSent: false,
+    isLoading: true
   },
   actions: {
     updateCustomers: () => async ({ setState, getState }) => {
@@ -20,7 +21,7 @@ const Store = createStore({
       })
       try {
         const resp = await getRequest({
-          url: `${baseUrl}/customer?channel=whatsapp&pageSize=10&page=${page}`
+          url: `${baseUrl}/customer?channel=whatsapp&pageSize=5&page=${page}`
         })
         const { customers: moreCustomers, currentPage, totalPages } = resp
         setState({
